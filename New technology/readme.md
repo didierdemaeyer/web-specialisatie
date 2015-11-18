@@ -1,4 +1,6 @@
-# New technology
+# New technology: Raspberry Pi (Python)
+
+Als new technology maak ik kennis met de Raspberry Pi, de Python programmeertaal en probeer ik een aantal zaken uit in Minecraft Pi.
 
 ## Resources
 
