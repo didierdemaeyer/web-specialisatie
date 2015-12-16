@@ -20,10 +20,10 @@ flower = 38
 
 
 # uncomment to place flowers where you walk every 100ms
-##while True:
-##    x, y, z = mc.player.getPos()
-##    mc.setBlock(x, y, z, flower)
-##    sleep(0.1)
+while True:
+    x, y, z = mc.player.getPos()
+    mc.setBlock(x, y, z, flower)
+    sleep(0.1)
 
 
 
