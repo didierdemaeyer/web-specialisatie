@@ -2,7 +2,7 @@
 
 ## Inleiding
 
-Dit is een vergelijkende studie tussen 2 bekende css Preprocessors: Sass en LESS. In deze studie zullen we beide preprocessors vergelijken op basis van features, snelheid en syntax. Voor we starten is het natuurlijk belangrijk dat je weet wat css preprocessors zijn en wat ze doen en waarom we ze zouden gebruiken.
+Dit is een vergelijkende studie tussen 2 bekende css preprocessors: Sass en LESS. In deze studie zullen we beide preprocessors vergelijken op basis van features, snelheid en syntax. Voor we starten is het natuurlijk belangrijk dat je weet wat css preprocessors zijn en wat ze doen en waarom we ze zouden gebruiken.
 
 #### Wat zijn CSS preprocessors?
 
@@ -10,9 +10,9 @@ CSS preprocessors nemen code geschreven in de preprocessed taal en converteren d
 
 #### Waarom zouden we CSS preprocessors gebruiken?
 
-CSS is enorm goed, maar het laat ons niet altijd alles doen wat we willen. Het doel van css was om zo simpel te zijn dat iedereen er snel mee kon beginnen zonder enige moeite. Dit zorgt er wel voor dat wat je kan doen is css heel gelimiteerd is en programmeurs hebben liever meer vrijheid. En css preprocessors bieden ons die vrijheid, door extra functionaliteiten toe te voegen zoals variabelen, geneste css regels, herbruikbare code stukken, enz...
+CSS is enorm goed, maar het laat ons niet altijd alles doen wat we willen. Het doel van css was om zo simpel te zijn dat iedereen er snel mee kon beginnen zonder enige moeite. Dit zorgt er wel voor dat wat je kan doen met css heel gelimiteerd is en programmeurs hebben liever meer vrijheid. CSS preprocessors bieden ons die vrijheid, door extra functionaliteiten toe te voegen zoals variabelen, geneste css regels, herbruikbare code stukken, enz...
 
-Door alle toegevoegde functionaliteit zal je sneller flexibele en makkelijker onderhoudbare css kunnen schrijven dan dat je ooit zou kunnen met css.
+Door al die toegevoegde functionaliteit zal je sneller flexibele en makkelijker onderhoudbare css kunnen schrijven dan dat je ooit zou kunnen met css.
 
 
 ## Voornaamste features
