@@ -7,3 +7,4 @@
 - pacman.py: PACMAN EATS ALL
 - cage.py: LOL
 - lightsensor_mc.py: placing blocks based in input from lightsensor
+- whac-a-block.py: Whac-a-Block game 3x3 blocks hit them to whac
