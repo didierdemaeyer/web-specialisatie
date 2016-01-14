@@ -45,7 +45,7 @@ stairs_wood = block.STAIRS_WOOD.id
 ##    sleep(0.5)
 
 
-#read input from light sensor
+#read input from button
 
 sensor = 23
 gpio.setup(sensor, gpio.IN)

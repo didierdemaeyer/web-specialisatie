@@ -25,7 +25,7 @@ flower = 38
 stairs_wood = block.STAIRS_WOOD.id
 
 
-##def placeStairs():
+def placeStairs():
     #place stairs
     x, y, z = mc.player.getPos()
     x = x+10
@@ -33,7 +33,7 @@ stairs_wood = block.STAIRS_WOOD.id
 
     i = 0
 
-    while i < 50:
+    while i < 20:
         x += 1
         y += 1
 
@@ -45,18 +45,17 @@ stairs_wood = block.STAIRS_WOOD.id
 
 
 #wait for input
-##sensor = 15
-##gpio.setup(sensor, gpio.IN)
-##
-##while True:
-##    sensorvalue = gpio.input(sensor)
-##    print(sensorvalue)
-##    
-##    if sensorvalue == 1:
-##        placeStairs()
-##        break
-##    
-##    sleep(0.2)
+sensor = 23
+gpio.setup(sensor, gpio.IN)
+
+while True:
+    sensorvalue = gpio.input(sensor)
+    print(sensorvalue)
+    
+    if sensorvalue == 0:
+        placeStairs()
+    
+    sleep(0.2)
 
 
 
