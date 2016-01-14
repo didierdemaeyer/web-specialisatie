@@ -38,4 +38,7 @@ while i < 100:
     print (sensorvalue)
     
     mc.setBlocks(x+20, y, z-5, x+20, y + (sensorvalue / 10), z+5, gold_block)
-    mc.setBlocks(x+20, y + (sensorvalue / 10), z-5, x+20, y + 100, z+5, air) 
+    mc.setBlocks(x+20, y + (sensorvalue / 10), z-5, x+20, y + 100, z+5, air)
+
+
+GPIO.cleanup()

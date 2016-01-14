@@ -1,6 +1,10 @@
 from mcpi.minecraft import Minecraft
 from mcpi import block
 from time import sleep
+import RPi.GPIO as gpio
+
+gpio.setmode(gpio.BCM)
+#gpio.setwarnings(False)
 
 mc = Minecraft.create()
 
@@ -21,23 +25,42 @@ flower = 38
 stairs_wood = block.STAIRS_WOOD.id
 
 
-#place stairs
-x, y, z = mc.player.getPos()
-x = x+10
-y -= 1
+##def placeStairs():
+    #place stairs
+    x, y, z = mc.player.getPos()
+    x = x+10
+    y -= 1
 
-i = 0
+    i = 0
 
-while i < 50:
-    x += 1
-    y += 1
+    while i < 50:
+        x += 1
+        y += 1
 
-    mc.setBlock(x, y, z-1, stairs_wood)
-    mc.setBlock(x, y, z, stairs_wood)
-    mc.setBlock(x, y, z+1, stairs_wood)
-    i += 1
-    sleep(0.2)
-
-
+        mc.setBlock(x, y, z-1, stairs_wood)
+        mc.setBlock(x, y, z, stairs_wood)
+        mc.setBlock(x, y, z+1, stairs_wood)
+        i += 1
+        sleep(0.2)
 
 
+#wait for input
+##sensor = 15
+##gpio.setup(sensor, gpio.IN)
+##
+##while True:
+##    sensorvalue = gpio.input(sensor)
+##    print(sensorvalue)
+##    
+##    if sensorvalue == 1:
+##        placeStairs()
+##        break
+##    
+##    sleep(0.2)
+
+
+
+
+
+##reset the status of all gpio pins
+gpio.cleanup()

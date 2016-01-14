@@ -47,15 +47,15 @@ stairs_wood = block.STAIRS_WOOD.id
 
 #read input from light sensor
 
-##sensor = 15
-##gpio.setup(sensor, gpio.IN)
-##
-##while True:
-##    print(gpio.input(sensor))
-##    sleep(0.5)
-##
-##
-##
+sensor = 23
+gpio.setup(sensor, gpio.IN)
+
+while True:
+    print(gpio.input(sensor))
+    sleep(0.5)
+
+
+
 ##reset the status of all gpio pins
 gpio.cleanup()
 

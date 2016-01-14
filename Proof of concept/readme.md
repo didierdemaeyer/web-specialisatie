@@ -6,3 +6,4 @@
 - stairs.py: Build stairs a few blocks away from you
 - pacman.py: PACMAN EATS ALL
 - cage.py: LOL
+- lightsensor_mc.py: placing blocks based in input from lightsensor

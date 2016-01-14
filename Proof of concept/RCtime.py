@@ -19,3 +19,6 @@ def RCtime (RCpin):
 
 while True:
     print (RCtime(15))
+
+
+GPIO.cleanup()
