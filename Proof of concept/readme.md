@@ -2,11 +2,11 @@
 
 ## Table of contents
 
-1. [Getting started with Minecraft Pi](#getting-started-with-minecraft-pi)
-2. [Setup](#setup)
-3. [Basics](#basics)
-4. [Advanced scripts](#advanced-scripts)
-5. [Multiplayer](#multiplayer)
+1. [Getting started with Minecraft Pi](#1-getting-started-with-minecraft-pi)
+2. [Setup](#2-setup)
+3. [Basics](#3-basics)
+4. [Advanced scripts](#4-advanced-scripts)
+5. [Multiplayer](#5-multiplayer)
 
 
 ## 1. Getting started with Minecraft Pi
