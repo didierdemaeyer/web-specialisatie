@@ -25,41 +25,38 @@ flower = 38
 stairs_wood = block.STAIRS_WOOD.id
 
 
-def placeStairs():
-    #place stairs
-    x, y, z = mc.player.getPos()
-    x = x+10
-    y -= 1
 
-    i = 0
+#flicker led
 
-    while i < 20:
-        x += 1
-        y += 1
+##led = 15
+##gpio.setup(led, gpio.OUT)
+##
+##i = 0
+##
+##while i < 50:
+##    if (i % 2) == 0:
+##        gpio.output(led, gpio.HIGH)
+##        print("LED ON")
+##    else:
+##        gpio.output(led, gpio.LOW)
+##        print("LED OFF")
+##
+##    i += 1
+##    sleep(0.5)
 
-        mc.setBlock(x, y, z-1, stairs_wood)
-        mc.setBlock(x, y, z, stairs_wood)
-        mc.setBlock(x, y, z+1, stairs_wood)
-        i += 1
-        sleep(0.2)
 
+#read input from button
 
-#wait for input
 sensor = 23
 gpio.setup(sensor, gpio.IN)
 
 while True:
-    sensorvalue = gpio.input(sensor)
-    print(sensorvalue)
-    
-    if sensorvalue == 0:
-        placeStairs()
-    
-    sleep(0.2)
-
-
+    print(gpio.input(sensor))
+    sleep(0.5)
 
 
 
 ##reset the status of all gpio pins
 gpio.cleanup()
+
+
