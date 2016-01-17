@@ -153,6 +153,8 @@ The wile loop will go on forever, so to stop the script hit `Ctrl + C` in the Py
 
 [See full code](./code/dropping_blocks_as_you_walk.py)
 
+Video:
+
 
 ## 4. Advanced scripts
 
@@ -378,3 +380,59 @@ def playGame():
 Video:
 
 ## 5. Multiplayer
+
+In Minecraft Pi you're able to play with other people that are on the same network as you are. This is easy when you're at home, just connect to the same router and you're good to go.
+
+It gets a bit trickier when you're in a public place like a school where different subnets are used on the network and you can't choose on which subnet you want to be. Here you'll want to connect the Pis to each other and set a static IP address on both of them. Make sure you configure them to be in the same subnet!
+
+[Tutorial - How to give your Raspberry Pi a static IP address](http://www.modmypi.com/blog/tutorial-how-to-give-your-raspberry-pi-a-static-ip-address)
+
+The part we need from this tutorial is where we configure the static IP. The file you will have to edit is located here `/etc/network/interfaces`.
+
+By default this will be in the file:
+
+```
+auto lo
+
+iface lo inet loopback
+iface eth0 inet dhcp
+
+allow-hotplu wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface default inet dhcp
+```
+
+This is how the file will be after you've changed `iface eth0 inet dhcp` to `iface eth0 inet static` + the settings for a static IP address.
+
+```
+auto lo
+
+iface lo inet loopback
+
+iface eth0 inet static
+address 192.168.1.2       #One of the players needs to change this to 192.168.1.3
+netmask 255.255.255.0
+network 192.168.1.0
+broadcast 192.168.1.255
+gateway 192.168.1.254
+
+allow-hotplu wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface default inet dhcp
+```
+
+After editing this file you will have to reboot.
+
+Now one player has to start a game, the other player has to go to 'Join Game' and can join the other player's game from here.
+
+
+## 6. Log
+
+- 15/12/2015: 1.5h - Trying out the basics of programming in Minecraft Pi
+- 16/12/2015: 4.5h - stairs.py, dropping_blocks_as_you_walk.py, pacman.py
+- 20/12/2015: 1.5h - cage.py
+- 09/01/2015: 4h - gpio.py, lightsensor_mc.py => working with buttons and the light sensor
+- 14/01/2015: 6h - implementing the use of the button in other scripts, Whac-a-Block game
+- 16/01/2015: 3h - writing extensive documentation
