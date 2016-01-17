@@ -129,7 +129,7 @@ from time import sleep
 mc = Minecraft.create()
 
 grass = block.GRASS.id
-flower = block.FLOWER.id
+flower = block.FLOWER_CYAN.id
 
 while True:
   x, y, z = mc.player.getPos()  #get your location
@@ -140,8 +140,231 @@ while True:
 
 The wile loop will go on forever, so to stop the script hit `Ctrl + C` in the Python window or close the Python window.
 
+[See full code](./code/dropping_blocks_as_you_walk.py)
+
 
 ## 4. Advanced scripts
+
+Using these basic functions from the API, I've created a few scripts myself to test what is possible in Minecraft Pi.
+
+### 4.1 Generating stairs
+
+This script will build stairs for you. It's placed about 10 blocks away from you.
+
+Code snippet:
+
+```Python
+def placeStairs():
+    #place stairs
+    x, y, z = mc.player.getPos()
+    x = x+10
+    y -= 1
+
+    i = 0
+
+    while i < 20:
+        x += 1
+        y += 1
+
+        mc.setBlock(x, y, z-1, stairs_wood)
+        mc.setBlock(x, y, z, stairs_wood)
+        mc.setBlock(x, y, z+1, stairs_wood)
+        i += 1
+        sleep(0.2)
+```
+
+[See full code](./code/stairs.py)
+
+Video:
+
+### 4.2 Pac-man eats all
+
+This script is controlled by a button attached to one of the pins of the Raspberry Pi.
+
+When you press the button the first time it will build pac-man one layer a time. If you press the button a second time it will create the pac-dots and if you press the button a third time pac-man will move forward and start eating the pac-dots.
+
+Pac-man will destroy every block it eats, so if you're stuck in a cave just let him eat the walls!
+
+Code snippet:
+
+```Python
+sensor = 23
+gpio.setup(sensor, gpio.IN)
+
+inputcount = 0
+
+while True:
+    sleep(0.2)
+    if gpio.input(sensor) == 0:
+        if inputcount == 0:
+            buildPacman()
+            inputcount += 1
+            sleep(1)
+
+        elif inputcount == 1:
+            placeFood()
+            inputcount += 1
+            sleep(1)
+
+        elif inputcount == 2:
+            move()
+            inputcount = 0
+            sleep(1)
+```
+
+[See full code](./code/pacman.py)
+
+Video:
+
+### 4.3 Caging other players
+
+This is a script that can also be used in multiplayer. First it will build a cage, then a player from the server will be teleported into the cage and after this the cage will be filled with lava. These steps are controlled by using a button attached to the Raspberry Pi.
+
+Code snippet:
+
+```Python
+# put player in cage
+def cagePlayer():
+    mc.entity.setPos(players[0], x+2, y-2, z)
+    sleep(2)
+
+#fill cage with lava
+def fillCageWithLava():
+    mc.setBlock(x+2, y+1, z, air) #open roof
+    mc.setBlock(x+2, y+2, z, lava) #place lava
+    sleep(2)
+
+
+sensor = 23
+gpio.setup(sensor, gpio.IN)
+inputcount = 0
+
+while True:
+    sleep(0.2)
+    if gpio.input(sensor) == 0:
+        if inputcount == 0:     #first button press
+            buildCage()
+            inputcount += 1
+
+        elif inputcount == 1:   #second button press
+            cagePlayer()
+            inputcount += 1
+
+        elif inputcount == 2:   #third button press
+            fillCageWithLava()
+            inputcount = 0    #reset
+```
+
+[See full code](./code/cage.py)
+
+Video:
+
+### 4.4 Using input from a light sensor
+
+This one was a bit tricky because the light sensor I have is an analog sensor and the Raspberry Pi doesn't have analog inputs. So after some time searching the web, I found a post on how to read analog voltages without using an Analog-to-Digital Converter chip.
+
+> By measuring the sensor as a resistor that is used to 'fill up' a capacitor, we can count how long it takes. It's not nearly as precise as an ADC and its a little flakey (since it depends on the Pi timing itself which can vary based on how 'busy' the computer is)
+
+Source: [Basic Resistor Sensor Reading on Raspberry Pi](https://learn.adafruit.com/basic-resistor-sensor-reading-on-raspberry-pi/overview)
+
+Using this technique I wrote some code to place blocks based on the reading of the sensor. The darker it is, the higher the row of blocks will become. This is constantly updated.
+
+Code snippet:
+
+```Python
+def RCtime (RCpin):
+    reading = 0
+    GPIO.setup(RCpin, GPIO.OUT)
+    GPIO.output(RCpin, GPIO.LOW)
+    time.sleep(0.1)
+
+    GPIO.setup(RCpin, GPIO.IN)
+    # This takes about 1 ms per loop cycle
+    while(GPIO.input(RCpin) == GPIO.LOW):
+        reading += 1
+
+    return reading
+
+
+#blocks
+air = block.AIR.id
+gold_block = block.GOLD_BLOCK.id
+
+
+x,y,z = mc.player.getPos()
+sensorvalue = 0
+
+while True:
+
+    sensorvalue = RCtime(15)
+
+    print (sensorvalue)   #print the reading
+
+    mc.setBlocks(x+20, y, z-5, x+20, y + (sensorvalue / 10), z+5, gold_block)
+    mc.setBlocks(x+20, y + (sensorvalue / 10), z-5, x+20, y + 100, z+5, air)
+```
+
+[See full code](./code/lightsensor_mc.py)
+
+Video:
+
+### 4.5 Whac-a-Block
+
+This is a game where the blocks on the 3x3 playing field will be changed to another color. The goal is to hit every block that has another color as fast as possible so it changes back to the original color and you get a point. If all the blocks are changed at the same time, you lose.
+
+Code snippet:
+
+```Python
+def playGame():
+    #build the board
+    pos = mc.player.getTilePos()
+
+    mc.setBlocks(pos.x - 1, pos.y, pos.z + 3, pos.x + 1, pos.y +2, pos.z +3, stone)
+
+    #countdown
+    mc.postToChat("Get ready ...")
+    time.sleep(1)
+    mc.postToChat("3...")
+    time.sleep(1)
+    mc.postToChat("2...")
+    time.sleep(1)
+    mc.postToChat("1...")
+    time.sleep(1)
+    mc.postToChat("GO!")
+
+    #light up blocks
+    blocksLit = 0
+    points = 0
+
+    while blocksLit < 9:
+        time.sleep(0.3)
+
+        blocksLit += 1
+        lightCreated = False
+        while not lightCreated:
+            xPos = pos.x + random.randint(-1, 1)
+            yPos = pos.y + random.randint(0, 2)
+            zPos = pos.z + 3
+
+            if mc.getBlock(xPos, yPos, zPos) == stone:
+                mc.setBlock(xPos, yPos, zPos, glowstone)
+                lightCreated = True
+
+        #register hits
+        for hitBlock in mc.events.pollBlockHits():
+            if mc.getBlock(hitBlock.pos.x, hitBlock.pos.y, hitBlock.pos.z) == glowstone:
+                mc.setBlock(hitBlock.pos.x, hitBlock.pos.y, hitBlock.pos.z, stone)
+                blocksLit -= 1
+                points += 1
+
+
+    #show message game over
+    mc.postToChat("Game Over. You scored " + str(points) + " points.")
+```
+
+[See full code](./code/whac-a-block.py)
+
+Video:
 
 ## 5. Multiplayer
 
@@ -152,5 +375,7 @@ The wile loop will go on forever, so to stop the script hit `Ctrl + C` in the Py
 - stairs.py: Build stairs a few blocks away from you
 - pacman.py: PACMAN EATS ALL
 - cage.py: LOL
-- lightsensor_mc.py: placing blocks based in input from lightsensor
-- whac-a-block.py: Whac-a-Block game 3x3 blocks hit them to whac
+- gpio.py: used for testing input and output from pins
+- RCtime.py: used for receiving input from a light sensor
+- lightsensor_mc.py: placing blocks based in input from light sensor
+- whac-a-block.py: Whac-a-Block game 3x3 blocks hit them to score points
