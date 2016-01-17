@@ -367,15 +367,3 @@ def playGame():
 Video:
 
 ## 5. Multiplayer
-
-
-## Scripts
-
-- dropping_blocks_as_you_walk.py: Dropping blocks and flowers where you walk
-- stairs.py: Build stairs a few blocks away from you
-- pacman.py: PACMAN EATS ALL
-- cage.py: LOL
-- gpio.py: used for testing input and output from pins
-- RCtime.py: used for receiving input from a light sensor
-- lightsensor_mc.py: placing blocks based in input from light sensor
-- whac-a-block.py: Whac-a-Block game 3x3 blocks hit them to score points
