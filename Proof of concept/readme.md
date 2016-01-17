@@ -426,7 +426,10 @@ iface default inet dhcp
 
 After editing this file you will have to reboot.
 
-Now one player has to start a game, the other player has to go to 'Join Game' and can join the other player's game from here.
+Now one player has to start a game, the other player has to go to 'Join Game' and can join the first player's game from here.
+
+Setup:
+![Minecraft Pi Multiplayer Setup](./images/multiplayer-setup.jpg)
 
 
 ## 6. Log
