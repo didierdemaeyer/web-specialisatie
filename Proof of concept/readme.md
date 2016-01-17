@@ -5,7 +5,18 @@
 1. [Getting started with Minecraft Pi](#1-getting-started-with-minecraft-pi)
 2. [Setup](#2-setup)
 3. [Basics](#3-basics)
+  1. [Using the Python programming interface](#31-using-the-python-programming-interface)
+  2. [Setting the position of your player](#32-setting-the-position-of-your-player)
+  3. [Placing a block](#33-placing-a-block)
+  4. [Special blocks](#34-special-blocks)
+  5. [Placing multiple blocks](#35-placing-multiple-blocks)
+  6. [Placing blocks as you walk](#36-placing-blocks-as-you-walk)
 4. [Advanced scripts](#4-advanced-scripts)
+  1. [Generating stairs](#41-generating-stairs)
+  2. [Pac-man eats all](#42-pac-man-eats-all)
+  3. [Caging other players](#43-caging-other-players)
+  4. [Using input from a light sensor](#44-using-input-from-a-light-sensor)
+  5. [Whac-a-Block](#45-whac-a-block)
 5. [Multiplayer](#5-multiplayer)
 
 
@@ -23,7 +34,7 @@ After trying these fun examples in Minecraft you can start creating your own cre
 
 Here are some of the basics on manipulating the Minecraft world.
 
-### 3.1 Use the Python programming interface
+### 3.1 Using the Python programming interface
 
 You can create a connection between Python 3 and Minecraft by using the following code:
 
