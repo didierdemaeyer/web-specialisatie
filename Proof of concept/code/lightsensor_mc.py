@@ -27,11 +27,10 @@ air = block.AIR.id
 gold_block = block.GOLD_BLOCK.id
 
 
-i = 0 
 x,y,z = mc.player.getPos()
 sensorvalue = 0
 
-while i < 100:
+while True:
     
     sensorvalue = RCtime(15)
 

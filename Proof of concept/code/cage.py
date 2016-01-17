@@ -90,7 +90,7 @@ def cagePlayer():
 #fill cage with lava
 def fillCageWithLava():
     mc.setBlock(x+2, y+1, z, air) #open roof
-    mc.setBlock(x+2, y+2, z, lava) #set lava
+    mc.setBlock(x+2, y+2, z, lava) #place lava
     sleep(2)
 
 
