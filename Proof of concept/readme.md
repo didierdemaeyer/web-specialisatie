@@ -155,6 +155,8 @@ The wile loop will go on forever, so to stop the script hit `Ctrl + C` in the Py
 [See full code](./code/dropping_blocks_as_you_walk.py)
 
 Video:
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=es70j_QNliM" target="_blank"><img src="http://img.youtube.com/vi/es70j_QNliM/0.jpg"
+alt="Minecraft Pi - Placing blocks as you walk" width="240" height="180" border="10"></a>
 
 
 ## 4. Advanced scripts
@@ -190,6 +192,8 @@ def placeStairs():
 [See full code](./code/stairs.py)
 
 Video:
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=mZbWzMI-6KM" target="_blank"><img src="http://img.youtube.com/vi/mZbWzMI-6KM/0.jpg"
+alt="Minecraft Pi - Generating stairs" width="240" height="180" border="10"></a>
 
 ### 4.2 Pac-man eats all
 
@@ -229,6 +233,8 @@ while True:
 [See full code](./code/pacman.py)
 
 Video:
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=n11-8w0CiYU" target="_blank"><img src="http://img.youtube.com/vi/n11-8w0CiYU/0.jpg"
+alt="Minecraft Pi - Pac-man eats all" width="240" height="180" border="10"></a>
 
 ### 4.3 Caging other players
 
@@ -272,6 +278,8 @@ while True:
 [See full code](./code/cage.py)
 
 Video:
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=u1FPyZXlL-0" target="_blank"><img src="http://img.youtube.com/vi/u1FPyZXlL-0/0.jpg"
+alt="Minecraft Pi - Caging players" width="240" height="180" border="10"></a>
 
 ### 4.4 Using input from a light sensor
 
@@ -321,6 +329,8 @@ while True:
 [See full code](./code/lightsensor_mc.py)
 
 Video:
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=gYk_ejRXRVk" target="_blank"><img src="http://img.youtube.com/vi/gYk_ejRXRVk/0.jpg"
+alt="Minecraft Pi - Using input from a light sensor" width="240" height="180" border="10"></a>
 
 ### 4.5 Whac-a-Block
 
@@ -379,6 +389,8 @@ def playGame():
 [See full code](./code/whac-a-block.py)
 
 Video:
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=RqEtfDlO0k8" target="_blank"><img src="http://img.youtube.com/vi/RqEtfDlO0k8/0.jpg"
+alt="Minecraft Pi - Whac-a-Block" width="240" height="180" border="10"></a>
 
 ## 5. Multiplayer
 
