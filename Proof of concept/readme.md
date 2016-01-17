@@ -18,6 +18,7 @@
   4. [Using input from a light sensor](#44-using-input-from-a-light-sensor)
   5. [Whac-a-Block](#45-whac-a-block)
 5. [Multiplayer](#5-multiplayer)
+6. [Log](#6-log)
 
 
 ## 1. Getting started with Minecraft Pi
