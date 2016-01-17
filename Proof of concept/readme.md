@@ -29,7 +29,13 @@ After trying these fun examples in Minecraft you can start creating your own cre
 
 ## 2. Setup
 
+The setup is pretty basic. I've attached a mouse, keyboard, screen and Ethernet cable to the Raspberry Pi. I've also connected some of the pins on the Raspberry to a breadboard so I can use a button and a light sensor as inputs. And that's it.
 
+Here are some pictures from my setup:
+
+![Overview of the setup](./images/setup-overview.jpg)
+
+![Setup of Raspberry Pi](./images/setup-raspberry-pi.jpg)
 
 ## 3. Basics
 
@@ -458,3 +464,4 @@ Setup:
 - 09/01/2015: 4h - gpio.py, lightsensor_mc.py => working with buttons and the light sensor
 - 14/01/2015: 6h - implementing the use of the button in other scripts, Whac-a-Block game
 - 16/01/2015: 3h - writing extensive documentation
+- 17/01/2015: 3h - improving videos, uploading videos and adding images
