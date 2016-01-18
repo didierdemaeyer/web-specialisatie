@@ -1,7 +1,3 @@
-@import url(foo.css);
-@import "foo" screen;
-@import "http://foo.com/bar";
-@import url(foo);
 @media screen {
   .screen-color {
     color: green; } }

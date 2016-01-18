@@ -1,0 +1,7 @@
+// @import "foo.scss";            // imports foo.scss
+// @import "foo";                 // imports foo.scss
+
+@import "foo.css";             // compiles to @import url(foo.css);
+@import "foo" screen;          // compiles to @import "foo" screen;
+@import "http://foo.com/bar";  // compiles to @import "http://foo.com/bar";
+@import url(foo);              // compiles to @import @import url(foo);

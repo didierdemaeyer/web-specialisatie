@@ -1,4 +1,3 @@
-@import "foo.css";
 @media screen {
   .screen-color {
     color: green;

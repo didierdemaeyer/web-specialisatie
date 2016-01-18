@@ -500,7 +500,7 @@ Output
 
 **Conclusie: Geneste media queries zijn gewoon super handig en je kan ze in beide gebruiken.**
 
-### 3.14 Impoteren van andere bestanden
+### 3.14 Importeren van andere bestanden
 
 Je schrijft je code het best in aparte bestanden, waar telkens kleine stukjes code in staan die met elkaar te maken hebben. Doordat je al je code opdeelt in verschillende bestanden zou je enorm veel gecompilede CSS bestanden krijgen. Dit willen we natuurlijk ook niet dus kunnen we gebruik maken van `@import` om al onze bestanden in één algemeen bestand te plaatsen.
 
@@ -521,7 +521,7 @@ Output                                        | Output
 /* code van foo.scss */                       | /* code van foo.less */
 /* code van foo.scss */                       | /* code van foo.less */
                                               |
-@import "foo.css";                            | @import "foo.css";
+@import url(foo.css);                       | @import "foo.css";
 @import "foo" screen;                         | /* code van foo.less */
 @import "http://foo.com/bar";                 | /* code van http://foo.com/bar.less */
 @import url(foo);                             | /* code van foo.less */
@@ -533,7 +533,80 @@ LESS gaat precies sneller proberen om van alle imports een `.less` bestand te im
 
 ### 3.15 Opmaak van de Output
 
+Sass heeft 4 verschillende output stijlen: `nested`, `expanded`, `compact` en `compressed` en LESS heeft er 2: `normal`, `compressed`. De standaard outputstijl van Sass is `nested` en die van LESS is `normal`.
 
+Voorbeelden van de outputstijlen van Sass:
+
+```CSS
+Nested
+------
+#main {
+  color: #fff;
+  background-color: #000; }
+  #main p {
+    width: 10em; }
+
+.huge {
+  font-size: 10em;
+  font-weight: bold;
+  text-decoration: underline; }
+
+
+Expanded
+--------
+#main {
+  color: #fff;
+  background-color: #000;
+}
+#main p {
+  width: 10em;
+}
+
+.huge {
+  font-size: 10em;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
+Compact
+-------
+#main { color: #fff; background-color: #000; }
+#main p { width: 10em; }
+
+.huge { font-size: 10em; font-weight: bold; text-decoration: underline; }
+
+
+Compressed
+----------
+#main{color:#fff;background-color:#000}#main p{width:10em}.huge{font-size:10em;font-weight:bold;text-decoration:underline}
+```
+
+Voorbeelden van de outputstijlen van LESS:
+
+```CSS
+Normal
+------
+#main {
+  color: #fff;
+  background-color: #000;
+}
+#main p {
+  width: 10em;
+}
+.huge {
+  font-size: 10em;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
+Compressed
+----------
+#main{color:#fff;background-color:#000}#main p{width:10em}.huge{font-size:10em;font-weight:700;text-decoration:underline}
+```
+
+**Conclusie: Sass heeft meer outputstijlen (`nested`, `expanded`, `compact`, `compressed`), maar LESS heeft de 2 belangrijkste ook: `normal` en `compressed`. **
 
 ### 3.16 Namespaces
 
