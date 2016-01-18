@@ -460,11 +460,80 @@ Output
 
 ### 3.13 Media queries
 
+Als we in pure CSS media queries gebruiken plaatsen we deze vaak onderaan het document. Dit zorgt ervoor dat de stijl van een bepaald element voor volledig scherm en mobile, etc niet bij elkaar staan en het dus moeilijk is om bepaalde zaken te overschrijven.
 
+In Sass en LESS kan je media queries nesten binnen selectors waardoor het veel eenvoudiger wordt om te zien hoe je design responsive veranderd.
+
+```CSS
+Sass & LESS
+-----------
+.screen-color {
+  @media screen {
+    color: green;
+    @media (min-width: 768px) {
+      color: red;
+    }
+  }
+  @media tv {
+    color: black;
+  }
+}
+
+Output
+------
+@media screen {
+  .screen-color {
+    color: green;
+  }
+}
+@media screen and (min-width: 768px) {
+  .screen-color {
+    color: red;
+  }
+}
+@media tv {
+  .screen-color {
+    color: black;
+  }
+}
+```
+
+**Conclusie: Geneste media queries zijn gewoon super handig en je kan ze in beide gebruiken.**
 
 ### 3.14 Impoteren van andere bestanden
 
+Je schrijft je code het best in aparte bestanden, waar telkens kleine stukjes code in staan die met elkaar te maken hebben. Doordat je al je code opdeelt in verschillende bestanden zou je enorm veel gecompilede CSS bestanden krijgen. Dit willen we natuurlijk ook niet dus kunnen we gebruik maken van `@import` om al onze bestanden in één algemeen bestand te plaatsen.
+
+```CSS
+Sass                                          | LESS
+----------------------------------------------+-----------------------------------------------
+@import "foo.scss"; /* imports foo.scss */    | @import "foo.less";   /* imports foo.less*/
+@import "foo";      /* imports foo.scss */    | @import "foo";        /* imports foo.less */
+                                              |
+@import "foo.css";                            | @import "foo.css";
+@import "foo" screen;                         | @import "foo" screen;           /* imports foo.less */
+@import "http://foo.com/bar";                 | @import "http://foo.com/bar";   /* imports http://foo.com/bar.less */
+@import url(foo);                             | @import url(foo);               /* imports foo.less */
+                                              |
+                                              |
+Output                                        | Output
+----------------------------------------------+-----------------------------------------------
+/* code van foo.scss */                       | /* code van foo.less */
+/* code van foo.scss */                       | /* code van foo.less */
+                                              |
+@import "foo.css";                            | @import "foo.css";
+@import "foo" screen;                         | /* code van foo.less */
+@import "http://foo.com/bar";                 | /* code van http://foo.com/bar.less */
+@import url(foo);                             | /* code van foo.less */
+```                     
+
+LESS gaat precies sneller proberen om van alle imports een `.less` bestand te importeren terwijl bij Sass sommige imports gecompiled worden als imports.
+
+**Conclusie: Maak zeker gebruik van nested media queries media. Zowel Sass als LESS zijn goed om media queries te nesten.**
+
 ### 3.15 Opmaak van de Output
+
+
 
 ### 3.16 Namespaces
 

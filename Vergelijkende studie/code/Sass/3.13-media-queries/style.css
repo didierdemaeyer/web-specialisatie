@@ -1,0 +1,14 @@
+@import url(foo.css);
+@import "foo" screen;
+@import "http://foo.com/bar";
+@import url(foo);
+@media screen {
+  .screen-color {
+    color: green; } }
+  @media screen and (min-width: 768px) {
+    .screen-color {
+      color: red; } }
+
+@media tv {
+  .screen-color {
+    color: black; } }
