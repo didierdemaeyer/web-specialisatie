@@ -1,0 +1,9 @@
+.error {
+  border: 1px solid #f00;
+  background-color: #fdd;
+}
+
+.seriousError {
+  @extend .error;
+  border-width: 5px;
+}

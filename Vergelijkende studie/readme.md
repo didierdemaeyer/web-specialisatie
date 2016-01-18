@@ -264,7 +264,61 @@ button {                          | button {
 
 ### 3.9 Overerving van selectors
 
+In Sass kan je door middel van `@extend` stijlen overerven van andere selectors, zo hoef je niet telkens verschillende klassen aan een HTML element geven.
 
+```CSS
+Sass
+----
+.error {
+  border: 1px solid #f00;
+  background-color: #fdd;
+}
+
+.seriousError {
+  @extend .error;
+  border-width: 5px;
+}
+
+Output
+------
+.error, .seriousError {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+.seriousError {
+  border-width: 5px;
+}
+```
+
+In LESS is dit niet mogelijk. Je kan een soortgelijk resultaat behalen door middel van mixins, maar hierbij worden alle stijlen gekopieerd in plaats van dat de selector wordt toegevoegd. Dit zorgt er dus voor dat je gecompiled bestand groter zal zijn bij LESS dan bij Sass.
+
+```CSS
+LESS
+----
+.error {
+  border: 1px solid #f00;
+  background-color: #fdd;
+}
+
+.seriousError {
+  .error();
+  border-width: 5px;
+}
+
+Output
+------
+.error {
+  border: 1px solid #f00;
+  background-color: #fdd;
+}
+.seriousError {
+  border: 1px solid #f00;
+  background-color: #fdd;
+  border-width: 5px;
+}
+```
+
+**Conclusie: In Sass kan je d.m.v. `@extend` een selector toevoegen bij een stuk code, bij LESS gaat dit niet en zal je met mixins moeten werken. Hierdoor zal je gecompiled bestand groter zijn bij LESS.**
 
 ### 3.10 Kleurmanipulatie
 
