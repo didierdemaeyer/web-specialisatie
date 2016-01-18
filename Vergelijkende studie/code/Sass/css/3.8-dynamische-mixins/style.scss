@@ -1,0 +1,7 @@
+@mixin bordered($width: 1px) {
+  border: $width solid #222;
+}
+
+button {
+  @include bordered(3px);
+}

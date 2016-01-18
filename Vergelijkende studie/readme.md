@@ -206,9 +206,65 @@ nav ul li {
 
 ### 3.7 Mixins
 
+Mixins kunnen zowel geschreven worden in Sass als LESS, maar de manier waarop je ze schrijft en aanroept is verschillend. In Sass gebruik je `@mixin` om een mixin te definiëren en in LESS gebruik je een class selector `.` . Om de mixin dan te gebruiken in een selector gebruik je in Sass `@include` en in LESS de naam die je aan de mixin klasse hebt gegeven.
+
+```CSS
+Sass                              | LESS
+----------------------------------+-------------------------------
+@mixin bordered {                 | .bordered {
+  border: 2px solid #222;         |   border: 2px solid #222;
+  border-top: 1px solid #000;     |   border-top: 1px solid #000;
+}                                 | }
+                                  |
+button {                          | button {
+  color: #fff;                    |   color: #fff;
+  @include bordered;              |   .bordered
+}                                 | }
+                                  |
+Output                            | Output
+----------------------------------+-------------------------------                          
+button {                          | .bordered {
+  color: #fff;                    |   border: 2px solid #222;
+  border: 2px solid #222;         |   border-top: 1px solid #000;
+  border-top: 1px solid #222;     | }
+}                                 | button {
+                                  |   color: #fff;
+                                  |   border: 2px solid #222;
+                                  |   border-top: 1px solid #222;
+                                  | }
+```
+
+Zoals je kan zien wordt de mixin in LESS ook mee gecompiled en in de output gezet, waardoor bestanden iets groter zullen zijn al is dit verschil miniem indien je weinig mixins gebruikt.
+
+**Conclusie: Je kan mixins gebruiken in beide. De syntax is wat anders, in Sass wordt `@mixin` en `@include` gebruikt en in LESS gebruik je: `.naam-van-je-mixin`. In LESS blijft de mixin mee in de output staan.**
+
 ### 3.8 Mixins met argumenten (Dynamische mixins)
 
+Dynamische mixins zijn mixins waar je argumenten met kan meegeven.
+
+```CSS
+Sass                              | LESS
+----------------------------------+------------------------------
+@mixin bordered($width: 1px) {    | .bordered(@width: 1px) {
+  border: $width solid #222;      |   border: @width solid #222;
+}                                 | }
+                                  |
+button {                          | button {
+  @include bordered(3px);         |   .bordered(3px)
+}                                 | }
+                                  |
+Sass                              | Output
+----------------------------------+------------------------------
+button {                          | button {
+  border: 3px solid #222;         |   border: 3px solid #222;
+}                                 | }
+```
+
+**Conclusie: Beiden hebben dezelfde output.**
+
 ### 3.9 Overerving van selectors
+
+
 
 ### 3.10 Kleurmanipulatie
 

@@ -1,0 +1,9 @@
+.bordered {
+  border: 2px solid #222;
+  border-top: 1px solid #000;
+}
+button {
+  color: #fff;
+  border: 2px solid #222;
+  border-top: 1px solid #000;
+}
