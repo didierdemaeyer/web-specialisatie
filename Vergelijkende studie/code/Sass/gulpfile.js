@@ -3,11 +3,11 @@ var sass = require('gulp-sass');
 
 
 gulp.task('sass', function () {
-  gulp.src('./css/3.9-overerving-van-selectors/style.scss')
+  gulp.src('./3.9-overerving-van-selectors/style.scss')     // replace with file you want to compile
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./css/3.9-overerving-van-selectors'));
+    .pipe(gulp.dest('./3.9-overerving-van-selectors'));     // replace with folder where the compiled file should go
 });
 
-gulp.task('sass:watch', function () {
-  gulp.watch('./css/**/*.scss', ['sass']);
-});
+// gulp.task('sass:watch', function () {
+//   gulp.watch('./css/**/*.scss', ['sass']);
+// });
