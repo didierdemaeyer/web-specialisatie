@@ -8,7 +8,7 @@
   1. [Installatie](#31-installatie)
   2. [De leercurve (Ruby, Command Line, ...)](#32-de-leercurve-ruby-command-line-)
   3. [Extensies](#33-extensies)
-  4. [Caching](#34-Caching)
+  4. [Caching](#34-caching)
   5. [Variabelen](#35-variabelen)
   6. [Geneste CSS regels](#36-geneste-css-regels)
   7. [Mixins](#37-mixins)
@@ -21,6 +21,9 @@
   14. [Importeren van andere bestanden](#314-importeren-van-andere-bestanden)
   15. [Opmaak van de output](#315-opmaak-van-de-output)
   16. [Namespaces](#316-namespaces)
+4. [Eindconclusie](#4-eindconclusie)
+5. [Logboek](#5-logboek)
+6. [Resources](#6-resources)
 
 ## 1. Inleiding
 
@@ -667,7 +670,14 @@ LESS
 **Conclusie: Dit is iets enorm handig in LESS om je mixins beter te kunnen organiseren.**
 
 
-## Logboek
+## 4. Eindconclusie
+
+Na de vergelijking te maken van de voornaamste features van elke preprocessor, lijkt Sass mij de betere keuze omdat je juist wat meer functionaliteiten hebt dan bij LESS. Ik vind het ook makkelijker om `$` voor variabelen te gebruiken aangezien ik vooral ook in PHP code schrijf waar je ook met `$` je variabelen begint. In Sass heb je ook de logica functies en loops die je een hoop tijd kunnen besparen. LESS is zeker ook een goede preprocessor, maar ik vind Sass toch juist wat beter.
+
+Uiteindelijk is de keuze natuurlijk nog steeds aan jou. Wat je ook kiest, Sass of LESS, als je je goed voelt bij je preprocesser en je er productiever door bent is het een goede keuze.
+
+
+## 5. Logboek
 
 - 13/12/2015 - Resources gezocht
 - 15/12/2015 - Inleiding geschreven, begonnen met vergelijken
@@ -675,7 +685,8 @@ LESS
 - 17/01/2016 - Verschillen met code voorbeelden uitwerken
 - 18/01/2016 - Verschillen met code voorbeelden uitwerken
 
-## Resources
+
+## 6.Resources
 
 - Sass: http://sass-lang.com/
 - Less: http://lesscss.org/
