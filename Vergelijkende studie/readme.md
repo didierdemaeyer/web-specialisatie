@@ -322,13 +322,145 @@ Output
 
 ### 3.10 Kleurmanipulatie
 
+Sass heeft een hele boel functies waarmee je een kleuren kan manipuleren. Al deze functies accepteren verschillende voorstellingen van kleuren, bv. benoemde kleuren (white, green), hex, rgb, rgba, hsl, hsla.
 
+Enkele van deze functies zijn:
+
+```CSS
+saturation($kleur)
+hue($kleur)
+lightness($kleur)
+
+lighten($kleur, $hoeveelheid)
+darken($kleur, $hoeveelheid)
+saturate($kleur, $hoeveelheid)
+desaturate($kleur, $hoeveelheid)
+adjust-hue($kleur, $hoeveelheid)
+opacify($kleur, $hoeveelheid)
+```
+
+LESS heeft ook een hele boel gelijkaardige functies, vaak zelfs met de zelfde benaming. Ik ga deze niet allemaal opnoemen aangezien ze ook in de documentatie staan en je ze toch niet zo vaak gebruikt.
+
+**Conclusie: Indien je kleuren wil manipuleren, maakt het niet uit of je in Sass of LESS werkt aangezien ze beide ongeveer hetzelfde kunnen.**
 
 ### 3.11 Wiskundige berekeningen
 
+Zowel in Sass als in LESS kan je wiskundige berekeningen maken.
+
+```
+Sass                          | LESS
+------------------------------+------------------------------
+1cm * 1em => Error            | 1cm * 1em => 1cm
+2in * 3in => Error            | 2in * 3in => 6in
+(1cm / 1em) * 4em => 4cm      | (1cm / 1em) * 4em => 4cm
+2in + 3cm + 2pc => 3.51444in  | 2in + 3cm + 2pc => 3.5144357in
+3in / 2in => 3in / 2in        | 3in / 2in => 1.5in
+
+
+Andere zaken die je in beide kan
+--------------------------------
+percentage($getal)
+round($getal)
+ceil($getal)
+floor($getal)
+abs($getal)
+min($getal)
+max($getal)
+...
+```
+
+We zien dat LESS meer berekeningen kan uitvoeren en ook preciezer is, maar ook niet volledig logisch is aangezien `1cm * 1em` berekend word naar `1cm`. LESS neemt hier gewoon de eenheid van het eerste deel.
+
+**Conclusie: LESS kan meer berekeningen uitvoeren, maar is niet altijd logisch. Het beste wat je kan doen is moeilijkere berekeningen gewoon even zelf berekenen.**
+
 ### 3.12 Logica en Loops
 
+LESS heeft geen echte loops, je kan ongeveer hetzelfde bereiken door *mixing guards* en *pattern matching* te gebruiken.
+
+Zowel Sass als LESS hebben boolean types `true` en `false`, `and`, `or` en `not` operatoren en `<`, `>`, `=<`, `=>`, `==` operatoren.
+
+If - Else:
+
+```CSS
+Sass                              | LESS
+----------------------------------+--------------------------------
+@if lightness($color) > 30% {     | .mixin (@color) when (lightness(@color) > 30%) {
+  background-color: #000;         |   background-color: #000;
+}                                 | }
+@else {                           | .mixin (@color) when (lightness(@color) =< 30%) {
+  background-color: #fff;         |   background-color: #fff;
+}                                 | }
+```
+
+Loops:
+
+```CSS
+Sass                              | LESS
+----------------------------------+--------------------------------
+@for $i from 1px to 10px {        | .loop(@counter) when (@counter > 0) {
+  .border-#{i} {                  |   .loop((@counter - 1));    // next iteration
+    border: $i solid #000;        |   width: (10px * @counter); // code for each iteration
+  }                               | }
+}                                 |
+                                  | div {
+                                  |   .loop(5); // launch the loop
+                                  | }
+```
+
+De volgende zijn enkel mogelijk in Sass.
+
+```CSS
+Sass
+----
+@each $animal in puma, sea-slug, egret, salamander {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+  }
+}
+
+Output
+------
+.puma-icon {
+  background-image: url('/images/puma.png');
+}
+.sea-slug-icon {
+  background-image: url('/images/sea-slug.png');
+}
+.egret-icon {
+  background-image: url('/images/egret.png');
+}
+.salamander-icon {
+  background-image: url('/images/salamander.png');
+}
+```
+
+```CSS
+Sass
+----
+$i: 6;
+@while $i > 0 {
+  .item-#{$i} { width: 2em * $i; }
+  $i: $i - 2;
+}
+
+Output
+------
+.item-6 {
+  width: 12em;
+}
+.item-4 {
+  width: 8em;
+}
+.item-2 {
+  width: 4em;
+}
+```
+
+**Conclusie: Het is duidelijk dat je in Sass veel meer logica in je code kan gebruiken door middel van de `if`, `else` en `for`, `each` en `while` functies.**
+
 ### 3.13 Media queries
+
+
 
 ### 3.14 Impoteren van andere bestanden
 

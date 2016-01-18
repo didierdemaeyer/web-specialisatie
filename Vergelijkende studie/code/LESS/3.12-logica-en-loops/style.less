@@ -1,0 +1,27 @@
+// if - else
+.mixin (@color) when (lightness(@color) > 30%) {
+  background-color: #000;
+}
+.mixin (@color) when (lightness(@color) =< 30%) {
+  background-color: #fff;
+}
+
+.section-a {
+  color: #000;
+  .mixin(#000)
+}
+.section-b {
+  color: #fff;
+  .mixin(#fff)
+}
+
+
+// loops
+.loop(@counter) when (@counter > 0) {
+  .loop((@counter - 1));    // next iteration
+  width: (10px * @counter); // code for each iteration
+}
+
+div {
+  .loop(5); // launch the loop
+}

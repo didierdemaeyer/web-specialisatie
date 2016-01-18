@@ -1,0 +1,33 @@
+// if - else
+$color: #000;
+div {
+  color: $color;
+  @if lightness($color) > 30% {
+    background-color: #000;
+  }
+  @else {
+    background-color: #fff;
+  }
+}
+
+
+// loops
+@for $i from 1px to 10px {
+  .border-#{i} {
+    border: $i solid #000;
+  }
+}
+
+
+@each $animal in puma, sea-slug, egret, salamander {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+  }
+}
+
+
+$i: 6;
+@while $i > 0 {
+  .item-#{$i} { width: 2em * $i; }
+  $i: $i - 2;
+}
