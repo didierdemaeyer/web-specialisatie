@@ -1,5 +1,27 @@
 # Vergelijkende studie: Sass vs LESS
 
+## Inhoudsopgave
+
+1. [Inleiding](#1-inleiding)
+2. [Voornaamste features](#2-voornaamste-features)
+3. [Vergelijking](#3-vergelijking)
+  1. [Installatie](#31-installatie)
+  2. [De leercurve (Ruby, Command Line, ...)](#32-de-leercurve-ruby-command-line-)
+  3. [Extensies](#33-extensies)
+  4. [Caching](#34-Caching)
+  5. [Variabelen](#35-variabelen)
+  6. [Geneste CSS regels](#36-geneste-css-regels)
+  7. [Mixins](#37-mixins)
+  8. [Mixins met argumenten (Dynamische mixins)](#38-mixins-met-argumenten-dynamische-mixins)
+  9. [Overerving van selectors](#39-overerving-van-selectors)
+  10. [Kleurmanipulatie](#310-kleurmanipulatie)
+  11. [Wiskundige berekeningen](#311-wiskundige-berekeningen)
+  12. [Logica en loops](#312-logica-en-loops)
+  13. [Media queries](#313-media-queries)
+  14. [Importeren van andere bestanden](#314-importeren-van-andere-bestanden)
+  15. [Opmaak van de output](#315-opmaak-van-de-output)
+  16. [Namespaces](#316-namespaces)
+
 ## 1. Inleiding
 
 Dit is een vergelijkende studie tussen 2 bekende css preprocessors: Sass en LESS. In deze studie zullen we beide preprocessors vergelijken op basis van features, snelheid en syntax. Voor we starten is het natuurlijk belangrijk dat je weet wat css preprocessors zijn en wat ze doen en waarom we ze zouden gebruiken.
@@ -373,7 +395,7 @@ We zien dat LESS meer berekeningen kan uitvoeren en ook preciezer is, maar ook n
 
 **Conclusie: LESS kan meer berekeningen uitvoeren, maar is niet altijd logisch. Het beste wat je kan doen is moeilijkere berekeningen gewoon even zelf berekenen.**
 
-### 3.12 Logica en Loops
+### 3.12 Logica en loops
 
 LESS heeft geen echte loops, je kan ongeveer hetzelfde bereiken door *mixing guards* en *pattern matching* te gebruiken.
 
@@ -531,7 +553,7 @@ LESS gaat precies sneller proberen om van alle imports een `.less` bestand te im
 
 **Conclusie: Maak zeker gebruik van nested media queries media. Zowel Sass als LESS zijn goed om media queries te nesten.**
 
-### 3.15 Opmaak van de Output
+### 3.15 Opmaak van de output
 
 Sass heeft 4 verschillende output stijlen: `nested`, `expanded`, `compact` en `compressed` en LESS heeft er 2: `normal`, `compressed`. De standaard outputstijl van Sass is `nested` en die van LESS is `normal`.
 
@@ -610,8 +632,39 @@ Compressed
 
 ### 3.16 Namespaces
 
+Dit is enkel mogelijk in LESS. Namespaces kunnen gebruikt worden om mixins te groeperen zodat ze eenvoudiger te vinden en aan te roepen zijn.
 
+Eerst maak je dus een groep van mixins:
 
+```CSS
+LESS
+----
+#bundle {
+  .button {
+    display: block;
+    border: 1px solid black;
+    background-color: grey;
+    &:hover {
+      background-color: white
+    }
+  }
+  .tab { ... }
+  .citation { ... }
+}
+```
+
+Nu kan je bijvoorbeeld de mixin `.button` gebruiken in je `#header a` op deze manier:
+
+```CSS
+LESS
+----
+#header a {
+  color: orange;
+  #bundle > .button;
+}
+```
+
+**Conclusie: Dit is iets enorm handig in LESS om je mixins beter te kunnen organiseren.**
 
 
 ## Logboek
