@@ -1,0 +1,14 @@
+$color: #000;
+
+header {
+  color: $color;
+}
+
+.content {
+  $color: #555;
+  color: $color;
+}
+
+footer {
+  color: $color;
+}

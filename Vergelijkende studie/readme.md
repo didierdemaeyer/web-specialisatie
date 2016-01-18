@@ -37,7 +37,7 @@ Door al die toegevoegde functionaliteit zal je sneller flexibele en makkelijker 
 
 ### 3.1 De leercurve (Ruby, Command Line, ...)
 
-De enige leercurve is eigenlijk de nieuwe syntax die je moet leren, omdat je een applicatie zoals CodeKit, LiveReload oof Mixture kan gebruiken om je bestanden in het oog te houden en te converteren wanneer er iets veranderd. Dit betekent dat je eigenlijk niets van Ruby, de Command Line of eender wat anders moet kennen. Het kan natuurlijk alleen maar handig zijn als je deze zaken wel kent.
+De enige leercurve is eigenlijk de nieuwe syntax die je moet leren omdat je een applicatie zoals CodeKit, LiveReload of Mixture kan gebruiken om je bestanden in het oog te houden en te converteren wanneer er iets veranderd. Dit betekent dat je eigenlijk niets van Ruby, de Command Line of eender wat anders moet kennen. Het kan natuurlijk alleen maar handig zijn als je deze zaken wel kent.
 
 **Conclusie: Beiden zijn eenvoudig om mee te starten.**
 
@@ -62,28 +62,36 @@ In beide talen zijn de variabelen enkel te gebruiken binnen hun scope. Het versc
 Voorbeeld van scope:
 
 ```CSS
-$color: #000;
-
-header {
-  color: $color;
-}
-
-.content {
-  $color: #555;
-  color: $color;
-}
-
-footer {
-  color: $color;
-}
+Sass                    | LESS
+------------------------+---------------------
+$color: #000;           | @color: #000
+                        |
+header {                | header {
+  color: $color;        |   color: @color;
+}                       | }
+                        |
+.content {              | .content {
+  $color: #555;         |   @color: #555;
+  color: $color;        |   color: @color;
+}                       | }
+                        |
+footer {                | footer {
+  color: $color;        |   color: @color;
+}                       | }
 ```
 
-Dit wordt gecompiled naar:
+Beiden worden gecompiled naar:
 
 ```CSS
-header { color: #000 }
-.content { color: #555 }
-footer { color: #000 }
+header {
+  color: #000
+}
+.content {
+  color: #555
+}
+footer {
+  color: #000
+}
 ```
 
 **Conclusie: Beiden zijn goed, het hangt af van wat jij het eenvoudigst vindt. `$` of `@`**
