@@ -31,7 +31,7 @@ After trying these fun examples in Minecraft you can start creating your own cre
 
 The setup is pretty basic. I've attached a mouse, keyboard, screen and Ethernet cable to the Raspberry Pi. I've also connected some of the pins on the Raspberry to a breadboard so I can use a button and a light sensor as inputs. And that's it.
 
-Here are some pictures from my setup:
+Here are some pictures of my setup:
 
 ![Overview of the setup](./images/setup-overview.jpg)
 

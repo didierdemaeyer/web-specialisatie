@@ -23,7 +23,6 @@ Door al die toegevoegde functionaliteit zal je sneller flexibele en makkelijker 
 - Uitbreidingen zoals variabelen, geneste regels en mixins
 - Handige functies voor het manipuleren van kleuren en andere waarden
 - Goed geformateerde en aanpasbare output
-- ...
 
 ### LESS
 
@@ -31,29 +30,51 @@ Door al die toegevoegde functionaliteit zal je sneller flexibele en makkelijker 
 - Variabelen
 - Mixins
 - Geneste CSS regels
-- ...
 
 ## 3. Vergelijking
 
-### 3.1 De leercurve (Ruby, Command Line, ...)
+### 3.1 Installatie
 
-De enige leercurve is eigenlijk de nieuwe syntax die je moet leren omdat je een applicatie zoals CodeKit, LiveReload of Mixture kan gebruiken om je bestanden in het oog te houden en te converteren wanneer er iets veranderd. Dit betekent dat je eigenlijk niets van Ruby, de Command Line of eender wat anders moet kennen. Het kan natuurlijk alleen maar handig zijn als je deze zaken wel kent.
+De installatie is een zeer belangrijk onderdeel. Sass maakt gebruik van Ruby om `.scss` en `.sass` bestanden te compilen naar CSS. Bij Mac's is dit al geïnstalleerd, maar bij Windows moet je zelf eerst Ruby installeren omdat dit er niet standaard op staat. LESS daarentegen gebruikt JavaScript om zijn `.less` bestanden te compilen naar CSS, hier moet je alleen less op je computer zetten en het werkt direct.
+
+Beiden hebben wel een aantal programma's waar je gewoon je bestanden kan inslepen of folders kiezen waar je alle bestanden van wilt compilen. Dit is de gemakkelijkste oplossing, maar je kan het niet uitbreiden of kiezen hoe je bepaalde zaken wilt doen.
+
+[Sass installeren](http://sass-lang.com/install)
+
+[LESS installeren](http://lesscss.org/)
+
+**Conclusie: LESS is wat eenvoudiger te installeren, aangezien Sass Ruby nodig heeft.**
+
+### 3.2 De leercurve (Ruby, Command Line, ...)
+
+De enige leercurve is eigenlijk de nieuwe syntax die je moet leren, aangezien je een applicatie zoals CodeKit, LiveReload of Mixture kan gebruiken om je bestanden in het oog te houden en te converteren wanneer er iets veranderd. Dit betekent dat je eigenlijk niets van Ruby, de Command Line of eender wat anders moet kennen. Het kan natuurlijk alleen maar handig zijn als je deze zaken wel kent.
 
 **Conclusie: Beiden zijn eenvoudig om mee te starten.**
 
-### 3.2 Mogelijkheid om css te prefixen
+### 3.3 Extensies
 
-Je kan met beide talen mixins schrijven die helpen met vendor prefixes. Maar als je in gewone css al geen moeite deed om prefixes up te daten dan zal je dit waarschijnlijk ook niet doen in je mixins. Waardoor je waarschijnlijk een library zal gebruiken die prefixes voor jou update. En deze bestaan zowel voor Sass als LESS.
+Zowel Sass als LESS hebben verschillende extensies zodat je sneller en eenvoudiger code kan schrijven.
 
-**Conclusie: Beiden hebben genoeg libraries die al heel wat voor je kunnen doen.**
+De populairste Sass extensie is volgens mij [Compass](http://compass-style.org/), dit heeft een aantal mixins om sneller CSS te schrijven. Compass heeft ook nog enkele andere zaken, zoals [Helper functies](http://compass-style.org/reference/compass/helpers/), [Layout](http://compass-style.org/reference/compass/layout/), [Typografie stijlen](http://compass-style.org/reference/compass/typography/), [Manier om met sprite images te werken](http://compass-style.org/reference/compass/utilities/sprites/). Compass bevat zowat alles wat je kan nodig hebben in je project.
 
-### 3.3 Caching
+LESS heeft ook een aantal extensies, maar er is geen volledig pakket zoals Compass. Hier zal je dus meer moeten zoeken naar de juiste extensies voor je project, wat het wat moeilijker maakt voor mensen die nog maar juist met een preprocessor beginnen werken.
 
-Templates en partials die gecompiled zijn naar CSS worden gecached, waardoor ze de volgende keer wanneer je iets aanpast in je SCSS of LESS file waardoor er opnieuw gecompiled moet worden. De compiler zal dan eerst kijken of er templates of partials zijn waar niets aan veranderd is, als deze er zijn zal hun gecompilede versie uit de cache gehaald worden waardoor het compilen veel sneller zal gaan. Het is dus aangeraden om je code op te splitsen in verschillende bestanden zodat caching het beste werkt. Zowel Sass als LESS gebruiken caching.
+Enkele LESS extensies zijn:
 
-**Conclusie: Beiden gebruiken caching.**
+- Mixins: [LESS](http://lesselements.com/), [Preboot](http://markdotto.com/bootstrap/), [LESS-Mixins](https://github.com/tophermade/LESS-Mixins)
+- Grids: [Fluidable](http://fluidable.com/), [Frameless](https://github.com/jonikorpi/Frameless)
+- Layout: [even.less](https://github.com/bisrael/even.less)
+- Algemeen: [Bootstrap](http://getbootstrap.com/)
 
-### 3.4 Variabelen
+**Conclusie: Beiden hebben genoeg extensies om je leven gemakkelijker te maken. Bij LESS zal je zelf een pakket van extensies moeten samenstellen, terwijl bij Sass Compass zowat alles bevat.**
+
+### 3.4 Caching
+
+Templates en partials die gecompiled zijn naar CSS worden gecached, waardoor ze de volgende keer wanneer je iets aanpast in je SCSS of LESS file waardoor er opnieuw gecompiled moet worden. De compiler zal dan eerst kijken of er templates of partials zijn waar niets aan veranderd is, als deze er zijn zal hun gecompilede versie uit de cache gehaald worden waardoor het compilen veel sneller zal gaan. Het is dus aangeraden om je code op te splitsen in verschillende bestanden zodat caching het beste werkt. Zowel Sass als LESS kunnen gebruik maken van caching.
+
+**Conclusie: Beiden kunnen gebruik maken van caching.**
+
+### 3.5 Variabelen
 
 Variabelen kunnen gebruikt worden in Sass en LESS, ik denk dat dit de feature is waarvoor de meeste mensen kiezen om een preprocessor te gebruiken. Je kan dit gebruiken om kleurcodes op te slaan, een bepaald aantal pixels,...
 
@@ -64,14 +85,14 @@ Voorbeeld van scope:
 ```CSS
 Sass                    | LESS
 ------------------------+---------------------
-$color: #000;           | @color: #000
+$color: #000;           | @color: #000            /* Global scope*/
                         |
 header {                | header {
-  color: $color;        |   color: @color;
+  color: $color;        |   color: @color;      
 }                       | }
                         |
 .content {              | .content {
-  $color: #555;         |   @color: #555;
+  $color: #555;         |   @color: #555;         /* Selector scope */
   color: $color;        |   color: @color;
 }                       | }
                         |
@@ -83,6 +104,8 @@ footer {                | footer {
 Beiden worden gecompiled naar:
 
 ```CSS
+Output
+------
 header {
   color: #000
 }
@@ -96,29 +119,110 @@ footer {
 
 **Conclusie: Beiden zijn goed, het hangt af van wat jij het eenvoudigst vindt. `$` of `@`**
 
-### Mogelijkheden: Logica / Loops
+### 3.6 Geneste CSS regels
 
-### Geneste css regels
+Zowel in Sass als LESS heb je de mogelijkheid om nesting te gebruiken bij selectors.
 
-### Mixins
+```CSS
+Sass & LESS
+-----------
+nav {
+  width: 100%;
+  height: 50px;
 
-### Mixins met argumenten (Dynamische mixins)
+  ul {
+    padding: 0;
+    margin: 0;
 
-### Overerving van selectors
+    li {
+      margin-left: 10px;
+    }
+  }
+}
 
-### Aanpassen van kleuren
+Output
+------
+nav {
+  width: 100%;
+  height: 50px;
+}
+nav ul {
+  padding: 0;
+  margin: 0;
+}
+nav ul li {
+  margin-left: 10px;
+}
+```
 
-### Wiskundige berekeningen
+Maar in Sass kan je ook CSS properties nesten. Voorbeeld:
 
-### Voorwaardelijke en controle structuren
+```CSS
+Sass
+----
+nav {
+  width: 100%;
+  height: 50px;
 
-### Imports
+  ul {
+    padding: 0;
+    margin: 0;
 
-### Output opmaak
+    li {
+      margin-left: 10px;
 
-### Comments
+      border: {
+        style: solid;
+        color: #000;
+        left: {
+          width: 4px;
+          color: #222;
+        }
+      }
+    }
+  }
+}
 
-### Namespaces
+Output
+------
+nav {
+  width: 100%;
+  height: 50px;
+}
+nav ul {
+  padding: 0;
+  margin: 0;
+}
+nav ul li {
+  margin-left: 10px;
+  border-style: solid;
+  border-color: #000;
+  border-left-width: 4px;
+  border-left-color: #222;
+}
+```
+
+**Conclusie: Beiden kunnen selectors nesten, maar Sass gaat hier juist nog wat verder in door ook CSS regels te kunnen nesten.**
+
+### 3.7 Mixins
+
+### 3.8 Mixins met argumenten (Dynamische mixins)
+
+### 3.9 Overerving van selectors
+
+### 3.10 Kleurmanipulatie
+
+### 3.11 Wiskundige berekeningen
+
+### 3.12 Logica en Loops
+
+### 3.13 Media queries
+
+### 3.14 Impoteren van andere bestanden
+
+### 3.15 Opmaak van de Output
+
+### 3.16 Namespaces
 
 
 
@@ -128,6 +232,7 @@ footer {
 
 - 13/12/2015 - Resources gezocht
 - 15/12/2015 - Inleiding geschreven, begonnen met vergelijken
+-
 
 ## Resources
 
