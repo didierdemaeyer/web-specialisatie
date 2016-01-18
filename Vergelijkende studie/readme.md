@@ -12,7 +12,7 @@ CSS preprocessors nemen code geschreven in de preprocessed taal en converteren d
 
 CSS is enorm goed, maar het laat ons niet altijd alles doen wat we willen. Het doel van css was om zo simpel te zijn dat iedereen er snel mee kon beginnen zonder enige moeite. Dit zorgt er wel voor dat wat je kan doen met css heel gelimiteerd is en programmeurs hebben liever meer vrijheid. CSS preprocessors bieden ons die vrijheid, door extra functionaliteiten toe te voegen zoals variabelen, geneste css regels, herbruikbare code stukken, enz...
 
-Door al die toegevoegde functionaliteit zal je sneller flexibele en makkelijker onderhoudbare css kunnen schrijven dan dat je ooit zou kunnen met css.
+Door al die toegevoegde functionaliteit zal je sneller flexibele en makkelijker onderhoudbare CSS kunnen schrijven, tegenover met pure CSS.
 
 
 ## 2. Voornaamste features
@@ -39,19 +39,19 @@ Door al die toegevoegde functionaliteit zal je sneller flexibele en makkelijker 
 
 De enige leercurve is eigenlijk de nieuwe syntax die je moet leren, omdat je een applicatie zoals CodeKit, LiveReload oof Mixture kan gebruiken om je bestanden in het oog te houden en te converteren wanneer er iets veranderd. Dit betekent dat je eigenlijk niets van Ruby, de Command Line of eender wat anders moet kennen. Het kan natuurlijk alleen maar handig zijn als je deze zaken wel kent.
 
-**Winnaar: Geen van beide**
+**Conclusie: Beiden zijn eenvoudig om mee te starten.**
 
 ### 3.2 Mogelijkheid om css te prefixen
 
 Je kan met beide talen mixins schrijven die helpen met vendor prefixes. Maar als je in gewone css al geen moeite deed om prefixes up te daten dan zal je dit waarschijnlijk ook niet doen in je mixins. Waardoor je waarschijnlijk een library zal gebruiken die prefixes voor jou update. En deze bestaan zowel voor Sass als LESS.
 
-**Winnaar: Geen van beide**
+**Conclusie: Beiden hebben genoeg libraries die al heel wat voor je kunnen doen.**
 
 ### 3.3 Caching
 
 Templates en partials die gecompiled zijn naar CSS worden gecached, waardoor ze de volgende keer wanneer je iets aanpast in je SCSS of LESS file waardoor er opnieuw gecompiled moet worden. De compiler zal dan eerst kijken of er templates of partials zijn waar niets aan veranderd is, als deze er zijn zal hun gecompilede versie uit de cache gehaald worden waardoor het compilen veel sneller zal gaan. Het is dus aangeraden om je code op te splitsen in verschillende bestanden zodat caching het beste werkt. Zowel Sass als LESS gebruiken caching.
 
-**Winnaar: Geen van beide**
+**Conclusie: Beiden gebruiken caching.**
 
 ### 3.4 Variabelen
 
@@ -86,11 +86,9 @@ header { color: #000 }
 footer { color: #000 }
 ```
 
-**Winnaar: Aan jou de keus**
+**Conclusie: Beiden zijn goed, het hangt af van wat jij het eenvoudigst vindt. `$` of `@`**
 
 ### Mogelijkheden: Logica / Loops
-
-### Variabelen
 
 ### Geneste css regels
 
