@@ -464,7 +464,7 @@ Als we in pure CSS media queries gebruiken plaatsen we deze vaak onderaan het do
 
 In Sass en LESS kan je media queries nesten binnen selectors waardoor het veel eenvoudiger wordt om te zien hoe je design responsive veranderd.
 
-```CSS
+```
 Sass & LESS
 -----------
 .screen-color {
@@ -521,7 +521,7 @@ Output                                        | Output
 /* code van foo.scss */                       | /* code van foo.less */
 /* code van foo.scss */                       | /* code van foo.less */
                                               |
-@import url(foo.css);                       | @import "foo.css";
+@import url(foo.css);                         | @import "foo.css";
 @import "foo" screen;                         | /* code van foo.less */
 @import "http://foo.com/bar";                 | /* code van http://foo.com/bar.less */
 @import url(foo);                             | /* code van foo.less */
@@ -606,7 +606,7 @@ Compressed
 #main{color:#fff;background-color:#000}#main p{width:10em}.huge{font-size:10em;font-weight:700;text-decoration:underline}
 ```
 
-**Conclusie: Sass heeft meer outputstijlen (`nested`, `expanded`, `compact`, `compressed`), maar LESS heeft de 2 belangrijkste ook: `normal` en `compressed`. **
+**Conclusie: Sass heeft meer outputstijlen (`nested`, `expanded`, `compact`, `compressed`), maar LESS heeft de 2 belangrijkste ook: `normal` en `compressed`.**
 
 ### 3.16 Namespaces
 
