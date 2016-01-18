@@ -342,7 +342,9 @@ Output
 
 - 13/12/2015 - Resources gezocht
 - 15/12/2015 - Inleiding geschreven, begonnen met vergelijken
--
+- 16/01/2016 - Sass en LESS documentatie doornomen en verschillen opgeschreven
+- 17/01/2016 - Verschillen met code voorbeelden uitwerken
+- 18/01/2016 - Verschillen met code voorbeelden uitwerken
 
 ## Resources
 
