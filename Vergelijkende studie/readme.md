@@ -686,7 +686,7 @@ Uiteindelijk is de keuze natuurlijk nog steeds aan jou. Wat je ook kiest, Sass o
 - 18/01/2016 - Verschillen met code voorbeelden uitwerken
 
 
-## 6.Resources
+## 6. Resources
 
 - Sass: http://sass-lang.com/
 - Less: http://lesscss.org/
