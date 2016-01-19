@@ -554,7 +554,7 @@ Output                                        | Output
 
 LESS gaat precies sneller proberen om van alle imports een `.less` bestand te importeren terwijl bij Sass sommige imports gecompiled worden als imports.
 
-**Conclusie: Maak zeker gebruik van nested media queries media. Zowel Sass als LESS zijn goed om media queries te nesten.**
+**Conclusie: Imports bij LESS zullen sneller tijdens het compilen mee geimporteerd worden als `.less` bestanden, terwijl bij Sass je ervoor kan zorgen dat imports als import in de CSS komen te staan.**
 
 ### 3.15 Opmaak van de output
 
