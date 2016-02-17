@@ -455,13 +455,3 @@ Now one player has to start a game, the other player has to go to 'Join Game' an
 Setup:
 ![Minecraft Pi Multiplayer Setup](./images/multiplayer-setup.jpg)
 
-
-## 6. Log
-
-- 15/12/2015: 1.5h - Trying out the basics of programming in Minecraft Pi
-- 16/12/2015: 4.5h - stairs.py, dropping_blocks_as_you_walk.py, pacman.py
-- 20/12/2015: 1.5h - cage.py
-- 09/01/2015: 4h - gpio.py, lightsensor_mc.py => working with buttons and the light sensor
-- 14/01/2015: 6h - implementing the use of the button in other scripts, Whac-a-Block game
-- 16/01/2015: 3h - writing extensive documentation
-- 17/01/2015: 3h - improving videos, uploading videos and adding images
