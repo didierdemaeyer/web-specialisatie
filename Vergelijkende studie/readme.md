@@ -677,16 +677,8 @@ Na de vergelijking te maken van de voornaamste features van elke preprocessor, l
 Uiteindelijk is de keuze natuurlijk nog steeds aan jou. Wat je ook kiest, Sass of LESS, als je je goed voelt bij je preprocesser en je er productiever door bent is het een goede keuze.
 
 
-## 5. Logboek
 
-- 13/12/2015 - Resources gezocht
-- 15/12/2015 - Inleiding geschreven, begonnen met vergelijken
-- 16/01/2016 - Sass en LESS documentatie doorgenomen en verschillen opgeschreven
-- 17/01/2016 - Verschillen met code voorbeelden uitwerken
-- 18/01/2016 - Verschillen met code voorbeelden uitwerken
-
-
-## 6. Resources
+## 5. Resources
 
 - Sass: http://sass-lang.com/
 - Less: http://lesscss.org/
